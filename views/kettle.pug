@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  - let results=[{kettle_name:"Electric Kettle",quantity: 1,resistance: "High"},{kettle_name:"Stovetop Kettle", quantity:2,resistance: "Medium"},{kettle_name:"Travel Kettle",quantity: 4,resistance : "Low"}];
+  div(class="container-fluid")
+  div(class="row")
+  each value,index in results 
+    div(class="col-sm-2" onclick=`buy(${index})`) #{value.kettle_name} , quantity is #{value.quantity} , with #{value.resistance} resistance
+  script. 
+    function buy(index)
+    {
+      alert(`You purchased Item ${index+1}`)
+    } 

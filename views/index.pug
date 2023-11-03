@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Sai Prakash Goud A Friend in need is a Friend indeed 
+  button(type="button", class="btn btn-secondary", onclick="goFaster()") Press Me
+  div#faster <i>Increase the speed</i>
+  a(href="http://localhost:3000/kettle") kettle link
+  script.
+    var mph = 20;
+    var change = 1;
+    function goFaster() {
+      mph = mph + change;
+      change = change + 1;
+      document.getElementById("faster").innerHTML = "<b>MPH</b> " + mph + " with <i>change</i> " + change;
+    }
+
