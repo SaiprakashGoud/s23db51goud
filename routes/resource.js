@@ -17,4 +17,4 @@ router.put('/kettles/:id', kettle_controller.kettle_update_put);
 router.get('/kettles/:id', kettle_controller.kettle_detail);
 // GET request for list of all Kettle items.
 router.get('/kettles', kettle_controller.kettle_list);
-module.exports = router;
+module.exports = router; 

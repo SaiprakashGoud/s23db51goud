@@ -13,4 +13,4 @@ const kettleSchema = mongoose.Schema({
         required:true
     }
     })
-module.exports = mongoose.model("Kettle",kettleSchema)
+module.exports = mongoose.model("Kettle",kettleSchema) 

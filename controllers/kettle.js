@@ -18,4 +18,4 @@ res.send('NOT IMPLEMENTED: kettle delete DELETE ' + req.params.id);
 // Handle kettle update form on PUT.
 exports.kettle_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: kettle update PUT' + req.params.id);
-};
+};  
