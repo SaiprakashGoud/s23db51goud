@@ -26,3 +26,14 @@ res.send('NOT IMPLEMENTED: kettle delete DELETE ' + req.params.id);
 exports.kettle_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: kettle update PUT' + req.params.id);
 };
+// Handle a show all view
+exports.kettle_view_all_Page = async function(req, res) {
+    try{
+    theKettles = await Kettle.find();
+    res.render('kettle', { title: 'Kettle Search Results', results: theKettles });
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };

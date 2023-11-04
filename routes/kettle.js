@@ -1,9 +1,7 @@
 var express = require('express');
+const kettle_controlers= require('../controllers/kettle');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('kettle', { title: 'Search Results Kettle' });
-});
-
+/* GET Kettles. */
+router.get('/', kettle_controlers.kettle_view_all_Page);
 module.exports = router;
