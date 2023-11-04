@@ -1,7 +1,14 @@
 var Kettle = require('../models/kettle');
 // List of all kettles
-exports.kettle_list = function(req, res) {
-res.send('NOT IMPLEMENTED: kettle list');
+exports.kettle_list = async function(req, res) {
+    try{
+    theKettle= await Kettle.find();
+    res.send(theKettle);
+    }
+    catch(err){
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
 };
 // for a specific kettle.
 exports.kettle_detail = function(req, res) {
@@ -18,4 +25,4 @@ res.send('NOT IMPLEMENTED: kettle delete DELETE ' + req.params.id);
 // Handle kettle update form on PUT.
 exports.kettle_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: kettle update PUT' + req.params.id);
-};  
+};
