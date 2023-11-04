@@ -1,0 +1,53 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let kettleid = toShow._id 
+    - let kettle_name= toShow.kettle_name
+    - let quantity = toShow.quantity 
+    - let resistance = toShow.resistance 
+    - let actionid = "/resource/kettles/" + kettleid 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='kettleAttr mr-3') kettle ID is: 
+        div #{kettleid} 
+      div.row 
+        div(class='kettleAttr mr-3') kettle name is: 
+        div #{kettle_name} 
+      div.row 
+        div(class='kettleAttr mr-3') kettle quantity is: 
+        div #{quantity} 
+      div.row 
+        div(class='kettleAttr mr-3') kettle resistance is: 
+        div #{resistance} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the kettle collection 
+      window.location.href='/kettles' 
+    } 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'      //Dont need a body for the delete 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/kettles' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    }
