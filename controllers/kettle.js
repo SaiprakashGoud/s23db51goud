@@ -39,8 +39,8 @@ exports.kettle_update_put = async function(req, res) {
     console.log(`update on id ${req.params.id} with body ${JSON.stringify(req.body)}`)
     try {
     let toUpdate = await Kettle.findById( req.params.id)
-    // Do updates of properties
-    if(req.body.kettle_name)
+    // Do updates of properties 
+    if(req.body.kettle_name) 
     toUpdate.kettle_name = req.body.kettle_name;
     if(req.body.quantity) toUpdate.quantity = req.body.quantity;
     if(req.body.resistance) toUpdate.resistance = req.body.resistance;
