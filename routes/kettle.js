@@ -13,5 +13,6 @@ router.get('/update', kettle_controlers.kettle_update_Page);
 /* GET delete kettle page */
 router.get('/delete', kettle_controlers.kettle_delete_Page);
 
-router.get('/costumes/:id',kettle_controlers.kettle_detail);
+router.get('/:id',kettle_controlers.kettle_detail);
+router.get('/:id', kettle_controlers.kettle_update_put);
 module.exports = router;

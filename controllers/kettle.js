@@ -50,7 +50,7 @@ exports.kettle_update_put = async function(req, res) {
     } catch (err) {
     res.status(500)
     res.send(`{"error": ${err}: Update for id ${req.params.id}
-   failed`);
+    failed`);
     }
    };
 // Handle a show all view
