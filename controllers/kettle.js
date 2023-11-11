@@ -118,7 +118,7 @@ exports.kettle_update_Page = async function(req, res) {
     try{
     let result = await Kettle.findById(req.query.id)
     res.render('kettleupdate', { title: 'Kettle Update', toShow: result });
-    }
+    } 
     catch(err){
     res.status(500)
     res.send(`{'error': '${err}'}`);

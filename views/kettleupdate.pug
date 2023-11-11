@@ -1,46 +1,40 @@
 extends layout
-
 block content
-    h1(class='bonus')= title
-
-    if (toShow == null)
-        h2 No instance to update
-    else
-        - let kettleid = toShow._id
-        - let kettle_name = toShow.kettle_name
-        - let quantity = toShow.quantity
-        - let resistance = toShow.resistance
-
-
-          div.row(class='kettleAttr mb-2')
-            div.mr-1 ID is
-            div #{kettleid}
-        - let actionid = "/resource/kettles/"+kettleid
-        form(id='kettleForm', action= actionid, method="PUT")
-          div.form-group
-            label.kettleAttr(for='kettle_name') kettle Name
-            input#kettle_name(type='text' name='kettle_name', value= kettle_name )
-          div.form-group
-            label.kettleAttr(for='quantity') kettle quantity
-            input#quantity(type='number' name='quantity', value= quantity )
-          div.form-group
-            label.kettleAttr(for='resistance') kettle resistance
-            input#resistance(type='text' name='resistance', value= resistance )
-          input(type="submit")
-        script.
-          document.forms['kettleForm'].addEventListener('submit', (event) => {
-            event.preventDefault();
-                // TODO do something here to show user that form is being submitted
-            fetch(event.target.action, {
-             method: 'PUT',
-             body: new URLSearchParams(new FormData(event.target)) // event.target is the form
-            }).then((resp) => {
-             return resp.json(); // or resp.text() or whatever the server sends
-            }).then((body) => {
-             alert("Update succeded")
-                // TODO handle body
-            }).catch((error) => {
-                // TODO handle error
-             alert("Update failed " + error )
-            });
-          });
+  h1= title
+  - let kettleid = toShow._id
+  - let kettle_name = toShow.kettle_name
+  - let kettlequantity = toShow.quantity
+  - let kettleresistance = toShow.resistance
+  div.row(class='mb-2')
+    div.mr-1 ID is
+    div #{kettleid}
+  - let actionid = "/resource/kettles/" + kettleid
+  form(id='kettleForm', action= actionid, method="PUT")
+    div.form-group
+      label.kettleAttr(for='kettle_type') kettle type
+      input#kettle_type(type='text', name='kettle_name', value= kettle_name )
+    div.form-group
+      label.kettleAttr(for='quantity') kettle quantity
+      input#quantity(type='number', name='quantity', value= kettlequantity )
+    div.form-group
+      label.kettleAttr(for='resistance') kettle resistance
+      input#resistance(type='text', name='resistance', value= kettleresistance )
+    input(type="submit")
+  script.
+    document.forms['kettleForm'].addEventListener('submit', (event) => {
+      event.preventDefault();
+      // TODO do something here to show user that form is being submitted
+      fetch(event.target.action, {
+      method: 'PUT',
+      body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+      }).then((resp) => {
+      return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+      alert("Update succeded")
+      // TODO handle body
+      }).catch((error) => {
+      // TODO handle error
+      alert("Update failed " + error )
+      });
+    });
+ 
