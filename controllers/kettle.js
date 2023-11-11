@@ -130,7 +130,7 @@ exports.kettle_delete_Page = async function(req, res) {
     try{
     result = await Kettle.findById(req.query.id)
     res.render('kettledelete', { title: 'Kettle Delete', toShow:
-   result });
+   result }); 
     }
     catch(err){
     res.status(500)
