@@ -106,7 +106,7 @@ exports.kettle_create_Page = function(req, res) {
     try{
     res.render('kettlecreate', { title: 'Kettle Create'});
     }
-    catch(err){
+    catch(err){ 
     res.status(500) 
     res.send(`{'error': '${err}'}`);
     }

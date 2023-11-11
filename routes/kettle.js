@@ -7,7 +7,7 @@ router.get('/', kettle_controlers.kettle_view_all_Page );
 /* GET detail kettle page */
 router.get('/detail', kettle_controlers.kettle_view_one_Page);
 /* GET create kettle page */
-router.get('/create', kettle_controlers.kettle_create_Page); 
+router.get('/create', kettle_controlers.kettle_create_Page);  
 
 
 router.get('/:id',kettle_controlers.kettle_detail);
