@@ -29,7 +29,7 @@ exports.kettle_delete = async function(req, res) {
     result = await Kettle.findByIdAndDelete( req.params.id)
     console.log("Removed " + result)
     res.send(result)
-    } catch (err) {
+    } catch (err)  {
     res.status(500)
     res.send(`{"error": Error deleting ${err}}`);
     }
