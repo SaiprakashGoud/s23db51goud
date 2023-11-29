@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 const kettleSchema = mongoose.Schema({
     kettle_name: {
         type: String,
-        required:[true,"Kettle Name is required"]
+        required:[true,"Kettle Name is  required"]
     },
     quantity: {
         type:Number,
