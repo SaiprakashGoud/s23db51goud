@@ -22,6 +22,4 @@ router.get('/update',secured, kettle_controlers.kettle_update_Page);
 /* GET delete kettle page */
 router.get('/delete',secured, kettle_controlers.kettle_delete_Page);
 
-router.get('/:id',kettle_controlers.kettle_detail);
-router.get('/:id', kettle_controlers.kettle_update_put);
 module.exports = router;
