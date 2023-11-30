@@ -14,7 +14,7 @@ const secured = (req, res, next) => {
 /* GET Kettles. */
 router.get('/', kettle_controlers.kettle_view_all_Page ); 
 /* GET detail kettle page */
-router.get('/detail', kettle_controlers.kettle_view_one_Page);
+router.get('/detail', secured, kettle_controlers.kettle_view_one_Page);
 /* GET create kettle page */
 router.get('/create',secured, kettle_controlers.kettle_create_Page); 
 /* GET update kettle page */
