@@ -3,6 +3,7 @@ extends layout
 block content
   h1= title
   - let items=results
+  - let destinationcreate = `dispatch(\"/kettles/create\")`
    button.btn( class="btn-primary ml-1", onclick= destinationcreate) Create
   //- div(class="container-fluid")
   //- div(class="row")
